@@ -1,0 +1,18 @@
+CREATE DATABASE Hospital;
+use Hospital;
+CREATE TABLE setores(
+ID int NOT NULL AUTO_INCREMENT,
+nome Varchar(50),
+numero int,
+PRIMARY KEY (ID));
+CREATE TABLE Corpo_Clinico (
+vinculo Varchar(50),
+referencia Varchar (50) NOT NULL,
+nome Varchar (100),
+categoria Varchar (50),
+consenf Varchar (50),
+setor_ID int,
+PRIMARY KEY (referencia),
+FOREIGN KEY (setor_ID) REFERENCES setores(ID));
+
+
