@@ -21,8 +21,13 @@ include_once("conexao.php");
 	</style>
 	 	
 	<body>	
-			<a href="index.php">Cadastrar</a><br>
-			<a href="listar.php">Listar</a><br>
+		<a href="index.php">Cadastrar</a><br>
+      	<a href="setores.php">Cadastrar Setores</a><br>
+     	<a href="user_del.php">Deletar Funcionários</a><br>
+      	<a href="user_update.php">Modificar Setor de Funcionários</a><br>
+      	<a href="setor_del.php">Deletar Setor</a><br>
+      	<a href="listar.php">Listar</a><br>
+      	<a href="escala.php">Escala</a><br>
 			
 			
 			<h1> HOSPITAL - SPDM<br>

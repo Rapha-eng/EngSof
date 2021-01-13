@@ -34,6 +34,7 @@ include_once("conexao.php");
       <a href="user_update.php">Modificar Setor de Funcionários</a><br>
       <a href="setor_del.php">Deletar Setor</a><br>
       <a href="listar.php">Listar</a><br>
+      <a href="escala.php">Escala</a><br>
       
     <h1> HOSPITAL - SPDM<br>
     <h1>Cadastrar Usuário</h1>
@@ -48,9 +49,9 @@ include_once("conexao.php");
             <option value="Outro">Outro</option>
       </select><br><br>
       <label>RF/RE: </label>
-      <input type="text" name="referencia" placeholder="Digite a referência"><br><br>
+      <input type="text" name="referencia" placeholder="Digite a RF/RE "><br><br>
       <label>Nome: </label>
-      <input type="text" name="nome" placeholder="Digite o Nome do Enfermeiro"><br><br>
+      <input type="text" name="nome" placeholder="Digite o Nome "><br><br>
       <label>Categoria: </label>
       <select name="categoria" id="categoria">
                                         <option>Escolha a Categoria:</option>
