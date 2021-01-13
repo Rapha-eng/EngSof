@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,7 +8,21 @@
 	<title>Setores</title>
 	
 </head>
+<style>
+  
+  body {
+  background-image: url('logo.png');
+  background-repeat: no-repeat;
+  background-size: 15% 25%; 
+  background-position: top right;
+  background-attachment: fixed;
+  }
+  
+  
+  </style>
 <body>
+
+
 	  <a href="index.php">Cadastrar</a><br>
       <a href="setores.php">Cadastrar Setores</a><br>
       <a href="user_del.php">Deletar Funcionários</a><br>
@@ -18,8 +35,14 @@
 <form method="POST" action="cadastra_setor.php">
 	<input type="text" name="nome" placeholder="Nome"><br><br>
 	<input type="text" name = "numero" placeholder="Número"><br><br>
-	<input type="submit" value="CADASTRAR"><br><br>
-
+	<input type="submit" value="CADASTRAR"><br><br><br><br>
+	<?php
+        if (isset ($_SESSION['msg'])) { 
+        echo $_SESSION['msg'];
+        unset ($_SESSION['msg']);
+        } 
+     ?>
+      
 </form>
 
 
