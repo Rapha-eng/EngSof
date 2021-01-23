@@ -5,18 +5,12 @@
 </head>
 <body>
 
-      <a href="index.php">Cadastrar</a><br>
-      <a href="setores.php">Cadastrar Setores</a><br>
-      <a href="user_del.php">Deletar Funcionários</a><br>
-      <a href="user_update.php">Modificar Setor de Funcionários</a><br>
-      <a href="setor_del.php">Deletar Setor</a><br>
-      <a href="listar.php">Listar</a><br>
-      <a href="escala.php">Escala</a><br>
+      <?php include 'header.html' ?>
 
 
 
 
-<h1> Escala</h1>
+<h1>Setores</h1>
 
 <?php
 session_start();
@@ -28,9 +22,9 @@ $resultado_setores  = mysqli_query($conn, $result_setores);
 
 	while ($row_setor = mysqli_fetch_assoc($resultado_setores)) {
 		
-		echo '<br>'. $row_setor['nome'] . '<br>';
+		echo '<br><b>'. $row_setor['nome'] . '</b><br>';
 
-		$result_corpo = "SELECT * FROM corpo_clinico";
+		$result_corpo = "SELECT * FROM corpo_clinico"; //REESCREVER ESSE CODIGO DEPOIS, LOOP INEFICIENTE
     	$resultado_corpo  = mysqli_query($conn, $result_corpo);
 
 		while ($row_corpo = mysqli_fetch_assoc($resultado_corpo)){

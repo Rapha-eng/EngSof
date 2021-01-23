@@ -35,3 +35,14 @@ PRIMARY KEY (user_esc_ID),
 FOREIGN KEY (esc_ID) REFERENCES Escalas(esc_ID),
 FOREIGN KEY (user_referencia) REFERENCES Corpo_Clinico(referencia),
 CONSTRAINT primaria UNIQUE (user_referencia,esc_ID));
+
+CREATE TABLE usuarios_dias_escalas (
+user_esc_day_ID int NOT NULL AUTO_INCREMENT,
+esc_ID int,
+user_referencia Varchar (50),
+dia DATE,
+situacao Varchar (50) DEFAULT 'Escalado',
+PRIMARY KEY (user_esc_day_ID),
+FOREIGN KEY (esc_ID) REFERENCES Escalas(esc_ID),
+FOREIGN KEY (user_referencia) REFERENCES Corpo_Clinico(referencia),
+CONSTRAINT primaria UNIQUE (user_referencia,esc_ID,dia));

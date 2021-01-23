@@ -24,15 +24,14 @@ session_start();
   
   <body>
     
-      <a href="index.php">Cadastrar</a><br>
-      <a href="listar.php">Listar</a><br>
+      <?php include 'header.html' ?>
       
     <h1> HOSPITAL - SPDM<br>
     <h1>Criar Escala</h1>
     
     
     
-    <form method="POST" action="cria_escala.php">
+    <form method="POST" action="criar_escala.php">
       <label>Data de Início: </label>
       <input type="date" id="inicio" name="inicio"><br><br>
       <label>Data de Fim: </label>
