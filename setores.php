@@ -23,13 +23,7 @@ session_start();
 <body>
 
 
-	  <a href="index.php">Cadastrar</a><br>
-      <a href="setores.php">Cadastrar Setores</a><br>
-      <a href="user_del.php">Deletar Funcionários</a><br>
-      <a href="user_update.php">Modificar Setor de Funcionários</a><br>
-      <a href="setor_del.php">Deletar Setor</a><br>
-      <a href="listar.php">Listar</a><br>
-      <a href="escala.php">Escala</a><br>
+	  <?php include 'header.html' ?>
 		
 	<h1>Cadastrar Setores</h1>
 <form method="POST" action="cadastra_setor.php">
