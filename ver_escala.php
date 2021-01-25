@@ -44,44 +44,60 @@ $dias = mysqli_query($conn, $dias_query);
     <h1> HOSPITAL - SPDM<br>
     <h3>Escala <?php echo date_format($start_date,'d/m/Y'), ' a ', date_format($end_date,'d/m/Y') , ' ' ,  $escala_info['turno'] ?></h3>
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    <?php
-    $day_counter=0;
-    foreach ($period as $day){
-      if ($day_counter!=0){
-        echo " ";
-      }
-      echo date_format($day,'d/m');
-      $day_counter+=1;
-    } 
-    ?>
 
-    <br>
-    
-     
-    <?php
-    $previous_setor = False;
-    while ($mega_row = mysqli_fetch_assoc($funcionarios)) {
-      if($mega_row['setor_nome']!=$previous_setor){
-        echo '<b>'. $mega_row['setor_nome'] . '</b><br>';
-        $previous_setor = $mega_row['setor_nome'];
-      }
-      $entrada = new DateTime($mega_row['entrada']);
-      $saida = new DateTime($mega_row['saida']);
-      echo $mega_row['nome'] . ' ' . date_format($entrada,"H:i") . ' ' . date_format($saida,"H:i") . ' - ';
-      for($i=0;$i<$day_counter;$i++){
-        $dias_row = mysqli_fetch_assoc($dias);
-        echo ' ' . $dias_row['situacao'];
-      }
-      echo '<br>';
-    }
-    ?>  
-      <?php
-        if (isset ($_SESSION['msg'])) { 
-        echo $_SESSION['msg'];
-        unset ($_SESSION['msg']);
-        } 
-      ?>
+<table border="1">
+
+      <thear> 
+       <tr> <td>Nome</td>
+        <td>Entrada</td>
+        <td>Saída</td>
+
+        <?php $day_counter=0;
+        foreach ($period as $day){?>
+          
+         <td><?php   echo date_format($day,'d/m'); ?></td>
+         <?php $day_counter+=1;
+        } ?>
+        </tr>
+      </thear>
+        
+      <tbody>  
+        <?php
+        $previous_setor = False;
+        while ($mega_row = mysqli_fetch_assoc($funcionarios)) {
+          if($mega_row['setor_nome']!=$previous_setor){?>
+            <tr><td> <?php echo $mega_row['setor_nome'] ; ?></td></tr>
+            <?php $previous_setor = $mega_row['setor_nome'];
+          }
+          $entrada = new DateTime($mega_row['entrada']);
+          $saida = new DateTime($mega_row['saida']);?>
+          <tr>
+              <td> <?php echo $mega_row['nome']; ?></td> 
+              <td> <?php echo date_format($entrada,"H:i"); ?></td>
+              <td> <?php echo date_format($saida,"H:i");?></td>
+
+
+
+
+              <?php for($i=0;$i<$day_counter;$i++){
+                $dias_row = mysqli_fetch_assoc($dias);?>
+              <td><?php  echo $dias_row['situacao'];?></td>
+             <?php }
+            
+            } ?>  
+          </tr>
+
+
+
+          <?php
+            if (isset ($_SESSION['msg'])) { 
+            echo $_SESSION['msg'];
+            unset ($_SESSION['msg']);
+            } 
+          ?>
+      </tbody> 
+    </table>
       
-      </form>
+    </form>
   </body>
 </html>
